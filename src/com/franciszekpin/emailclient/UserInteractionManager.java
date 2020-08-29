@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class UserInteractionManager {
     void interactWithUser() {
         System.out.println("Type command: ");
-        String input = readCommand();
+        String input = readInput();
         interpretCommand(input);
     }
 
-    String readCommand() {
+    String readInput() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
@@ -18,6 +18,11 @@ public class UserInteractionManager {
         if (isGetCommand(command)) {
             int number = getNumberOfMessages(command);
             System.out.println("Get " + number + " messages");
+        }
+        
+        if (isSendCommand(command)) {
+            String emailAddress = getEmailAddress(command);
+            System.out.println("Send on " + emailAddress + " address");
         }
     }
 
@@ -28,6 +33,11 @@ public class UserInteractionManager {
     boolean isGetCommand(String command) {
         return (isCommandLengthSufficient(command, 5))
                 && (command.substring(0, 4).equals("get "));
+    }
+
+    boolean isSendCommand(String command) {
+        return (isCommandLengthSufficient(command, 6))
+                && (command.substring(0, 5).equals("send "));
     }
 
     int getNumberOfMessages(String command) {
@@ -42,5 +52,9 @@ public class UserInteractionManager {
             number = 10;
         }
         return number;
+    }
+
+    String getEmailAddress(String command) {
+        return command.substring(5);
     }
 }
