@@ -3,10 +3,10 @@ package com.franciszekpin.emailclient;
 import java.util.Scanner;
 
 public class UserInteractionManager {
-    void interactWithUser() {
+    Action getActionToComplete() {
         System.out.println("Type command: ");
         String input = readInput();
-        interpretCommand(input);
+        return interpretCommand(input);
     }
 
     String readInput() {
@@ -14,16 +14,23 @@ public class UserInteractionManager {
         return scanner.nextLine();
     }
 
-    void interpretCommand(String command) {
+    Action interpretCommand(String command) {
+        Action action;
         if (isGetCommand(command)) {
             int number = getNumberOfMessages(command);
-            System.out.println("Get " + number + " messages");
+            //System.out.println("Get " + number + " messages");
+            action = new ActionGet(number);
         }
-        
-        if (isSendCommand(command)) {
+
+        else if (isSendCommand(command)) {
             String emailAddress = getEmailAddress(command);
-            System.out.println("Send on " + emailAddress + " address");
+            //System.out.println("Send on " + emailAddress + " address");
+            action = new ActionSend(emailAddress);
         }
+
+        else action = new WrongCommandAction();
+
+        return action;
     }
 
     boolean isCommandLengthSufficient(String command, int minimalLength) {

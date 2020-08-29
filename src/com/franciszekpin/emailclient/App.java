@@ -9,7 +9,8 @@ public class App {
 
     void start() {
         while (true) {
-            userInteractionManager.interactWithUser();
+            Action action = userInteractionManager.getActionToComplete();
+            action.handleAction();
         }
     }
 }
