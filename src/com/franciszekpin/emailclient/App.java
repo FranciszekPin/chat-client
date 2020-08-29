@@ -9,7 +9,7 @@ public class App {
 
     void start() {
         while (true) {
-            userInteractionManager.getUserInput();
+            userInteractionManager.interactWithUser();
         }
     }
 }
