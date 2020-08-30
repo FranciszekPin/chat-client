@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class UserInteractionManager {
     private Inbox inbox;
+    private Outbox outbox;
 
-    UserInteractionManager(Inbox inbox) {
-        this.inbox = inbox;
+    UserInteractionManager() {
+        inbox = new Inbox();
+        outbox = new Outbox();
     }
 
     Action getActionToComplete() {
@@ -29,7 +31,7 @@ public class UserInteractionManager {
 
         else if (isSendCommand(command)) {
             String emailAddress = getEmailAddress(command);
-            action = new ActionSend(emailAddress);
+            action = new ActionSend(outbox, emailAddress);
         }
 
         else if (isShowCommand(command)) {
@@ -56,8 +58,7 @@ public class UserInteractionManager {
     }
 
     boolean isShowCommand(String command) {
-        return (isCommandLengthSufficient(command, 5))
-                && (command.substring(0, 5).equals("show "));
+        return command.equals("show");
     }
 
     int getNumberOfMessages(String command) {

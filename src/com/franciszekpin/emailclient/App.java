@@ -1,12 +1,12 @@
 package com.franciszekpin.emailclient;
 
 public class App {
-    UserInteractionManager userInteractionManager;
-    Inbox inbox;
+    private UserInteractionManager userInteractionManager;
+    private Inbox inbox;
+    private Outbox outbox;
 
     public App() {
-        inbox = new Inbox();
-        userInteractionManager = new UserInteractionManager(inbox);
+        userInteractionManager = new UserInteractionManager();
     }
 
     void start() {

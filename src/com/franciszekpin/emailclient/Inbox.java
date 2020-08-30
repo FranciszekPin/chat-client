@@ -25,6 +25,10 @@ public class Inbox {
 
     }
 
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
     public List<Mail> getMails() {
         if (this.isEmpty)
             System.out.println("nothing to show");
