@@ -3,6 +3,12 @@ package com.franciszekpin.emailclient;
 import java.util.Scanner;
 
 public class UserInteractionManager {
+    private Inbox inbox;
+
+    UserInteractionManager(Inbox inbox) {
+        this.inbox = inbox;
+    }
+
     Action getActionToComplete() {
         System.out.println("Type command: ");
         String input = readInput();
@@ -18,14 +24,16 @@ public class UserInteractionManager {
         Action action;
         if (isGetCommand(command)) {
             int number = getNumberOfMessages(command);
-            //System.out.println("Get " + number + " messages");
-            action = new ActionGet(number);
+            action = new ActionGet(inbox, number);
         }
 
         else if (isSendCommand(command)) {
             String emailAddress = getEmailAddress(command);
-            //System.out.println("Send on " + emailAddress + " address");
             action = new ActionSend(emailAddress);
+        }
+
+        else if (isShowCommand(command)) {
+            action = new ActionShow(inbox);
         }
 
         else action = new WrongCommandAction();
@@ -45,6 +53,11 @@ public class UserInteractionManager {
     boolean isSendCommand(String command) {
         return (isCommandLengthSufficient(command, 6))
                 && (command.substring(0, 5).equals("send "));
+    }
+
+    boolean isShowCommand(String command) {
+        return (isCommandLengthSufficient(command, 5))
+                && (command.substring(0, 5).equals("show "));
     }
 
     int getNumberOfMessages(String command) {
