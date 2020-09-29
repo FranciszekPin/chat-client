@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class MySQLJBDCUtil {
-    public Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         Connection connection = null;
 
         String propertiesFileName = "/home/franciszek/IdeaProjects/email-client/src/com/franciszekpin/emailclient/db.properties";

@@ -13,7 +13,7 @@ public class ActionShow extends Action {
         if (!inbox.isEmpty()) {
             List<Message> mails = inbox.getMails();
             for (Message each : mails) {
-                System.out.println(each.getAddress());
+                System.out.println(each.getContent());
             }
         }
         else {

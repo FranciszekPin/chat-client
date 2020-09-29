@@ -1,7 +1,7 @@
 package com.franciszekpin.emailclient;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Inbox {
@@ -13,12 +13,10 @@ public class Inbox {
     }
 
     public void downloadMails(int x) {
-        mails = new ArrayList<Message>();
+        mails = new ArrayList<>();
         for (int i=0; i<x; i++) {
             mails.add(new Message(
-                    "example@company.com",
-                    "Some topic",
-                    "hahahah co tam u cbbb"
+                    1, Date.valueOf("12-10-2020"), "dasfldsajfl;ksajd;lkfjsa dsafjsa sadfj;a"
             ));
         }
         this.isEmpty = false;

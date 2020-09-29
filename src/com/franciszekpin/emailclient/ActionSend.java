@@ -1,5 +1,7 @@
 package com.franciszekpin.emailclient;
 
+import java.sql.Date;
+
 public class ActionSend extends Action{
     private String messageContent;
     private Outbox outbox;
@@ -11,6 +13,6 @@ public class ActionSend extends Action{
 
     @Override
     public void handleAction() {
-        outbox.send(new Message(messageContent, "topic", "content"));
+        outbox.send(new Message(1, Date.valueOf("2020-10-04"), messageContent));
     }
 }

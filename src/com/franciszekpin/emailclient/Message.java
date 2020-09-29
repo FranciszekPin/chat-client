@@ -1,22 +1,24 @@
 package com.franciszekpin.emailclient;
 
+import java.sql.Date;
+
 public class Message {
-    private String address;
-    private String topic;
+    private int userId;
+    private Date date;
     private String content;
 
-    public Message(String address, String topic, String content) {
-        this.address = address;
-        this.topic = topic;
+    public Message(int userId, Date date, String content) {
+        this.userId = userId;
+        this.date = date;
         this.content = content;
     }
 
-    public String getAddress() {
-        return address;
+    public Date getDate() {
+        return date;
     }
 
-    public String getTopic() {
-        return topic;
+    public int getUserId() {
+        return userId;
     }
 
     public String getContent() {
