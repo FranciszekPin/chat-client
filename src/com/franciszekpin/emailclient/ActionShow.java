@@ -11,8 +11,8 @@ public class ActionShow extends Action {
     @Override
     public void handleAction() {
         if (!inbox.isEmpty()) {
-            List<Mail> mails = inbox.getMails();
-            for (Mail each : mails) {
+            List<Message> mails = inbox.getMails();
+            for (Message each : mails) {
                 System.out.println(each.getAddress());
             }
         }

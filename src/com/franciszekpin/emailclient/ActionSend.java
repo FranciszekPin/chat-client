@@ -1,16 +1,16 @@
 package com.franciszekpin.emailclient;
 
 public class ActionSend extends Action{
-    private String emailAddress;
+    private String messageContent;
     private Outbox outbox;
 
-    public ActionSend(Outbox outbox, String emailAddress) {
-        this.emailAddress = emailAddress;
+    public ActionSend(Outbox outbox, String messageContent) {
+        this.messageContent = messageContent;
         this.outbox = outbox;
     }
 
     @Override
     public void handleAction() {
-        outbox.send(new Mail(emailAddress, "topic", "content"));
+        outbox.send(new Message(messageContent, "topic", "content"));
     }
 }

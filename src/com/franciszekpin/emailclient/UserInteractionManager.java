@@ -30,8 +30,8 @@ public class UserInteractionManager {
         }
 
         else if (isSendCommand(command)) {
-            String emailAddress = getEmailAddress(command);
-            action = new ActionSend(outbox, emailAddress);
+            String messageContent = getMessageContent(command);
+            action = new ActionSend(outbox, messageContent);
         }
 
         else if (isShowCommand(command)) {
@@ -75,7 +75,7 @@ public class UserInteractionManager {
         return number;
     }
 
-    String getEmailAddress(String command) {
+    String getMessageContent(String command) {
         return command.substring(5);
     }
 }

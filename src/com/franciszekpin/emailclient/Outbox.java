@@ -1,7 +1,7 @@
 package com.franciszekpin.emailclient;
 
 public class Outbox {
-    public void send(Mail mail) {
-        System.out.println("Send message to address " + mail.getAddress());
+    public void send(Message message) {
+        System.out.println("Send message to address " + message.getAddress());
     }
 }

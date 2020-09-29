@@ -1,11 +1,11 @@
 package com.franciszekpin.emailclient;
 
-public class Mail {
+public class Message {
     private String address;
     private String topic;
     private String content;
 
-    public Mail(String address, String topic, String content) {
+    public Message(String address, String topic, String content) {
         this.address = address;
         this.topic = topic;
         this.content = content;

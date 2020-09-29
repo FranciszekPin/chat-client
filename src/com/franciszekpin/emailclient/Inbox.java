@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Inbox {
-    private List<Mail> mails;
+    private List<Message> mails;
     private boolean isEmpty;
 
     public Inbox() {
@@ -13,9 +13,9 @@ public class Inbox {
     }
 
     public void downloadMails(int x) {
-        mails = new ArrayList<Mail>();
+        mails = new ArrayList<Message>();
         for (int i=0; i<x; i++) {
-            mails.add(new Mail(
+            mails.add(new Message(
                     "example@company.com",
                     "Some topic",
                     "hahahah co tam u cbbb"
@@ -29,7 +29,7 @@ public class Inbox {
         return isEmpty;
     }
 
-    public List<Mail> getMails() {
+    public List<Message> getMails() {
         if (this.isEmpty)
             System.out.println("nothing to show");
         return this.mails;
