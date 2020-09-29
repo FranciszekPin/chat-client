@@ -1,5 +1,6 @@
 package com.franciszekpin.emailclient;
 
+
 public class Main {
 
     public static void main(String[] args) {
